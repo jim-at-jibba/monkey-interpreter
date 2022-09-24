@@ -40,3 +40,4 @@ type Lexer struct {
 
 - The lexer only supports ASCII chars instead of the full UNicode range. This is to keep it simple.
 - To support Unicode and UTF-8 we would need to change the `ch` to a rune type and change the way we read the next char to handle the multiple byte width
+- We need to be able to skip whitepace as its only used for formatting. So languages include a token for newlines. We are skipping that
