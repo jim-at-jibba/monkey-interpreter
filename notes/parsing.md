@@ -10,3 +10,17 @@
 ## Parsing strategies
 
 - **top-down** and **bottom-up**
+
+## Parsing expressions
+
+- More complicated than parsing statements
+- **Operator presidence** comes to mind first
+
+```monkey
+((5*5) + 10)
+```
+
+- `5*5` needs to be deeper in the ast and be parsed first
+- The parser must be aware of the order of presidence
+- Another interesting challenge is the same character in multiple positions `-5 - 10`. Here we have **prefix** and **infix** operators. Another example is as follows `5 * (add(2,3) + 10)`.
+  - The outer pair of parens group the expressions and the inner pair denote a **call expression**. Validity now depends on context
