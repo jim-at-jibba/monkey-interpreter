@@ -5,13 +5,15 @@
 - A parsing turns input into a data structure that represents that input.
 - A common example of parser is `JSON.parse` in javascript
 - MOst parsers produce an `abstract syntax tree`, **abstract** because some of the details visible in the source code are ommited from the AST, like whitespace, braces, comments etc
-- Also called **static analysis**
+- Also called **syntactic analysis**
 
 ## Parsing strategies
 
 - **top-down** and **bottom-up**
 
 ## Parsing expressions
+
+- In Monkey, **expressions** produce values and **statements** dont!
 
 - More complicated than parsing statements
 - **Operator presidence** comes to mind first
@@ -24,3 +26,9 @@
 - The parser must be aware of the order of presidence
 - Another interesting challenge is the same character in multiple positions `-5 - 10`. Here we have **prefix** and **infix** operators. Another example is as follows `5 * (add(2,3) + 10)`.
   - The outer pair of parens group the expressions and the inner pair denote a **call expression**. Validity now depends on context
+
+### Pratt parser
+
+- Main idea is associating paring functions (**semantic code**) with token types.
+- Whenever a token type is encountered, the parsing functions are called to parse the appropriate expression and return the AST node that represents it.
+- Each token type can have 2 types of function. One for **prefix** and one for **infix**
