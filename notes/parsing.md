@@ -32,3 +32,5 @@
 - Main idea is associating paring functions (**semantic code**) with token types.
 - Whenever a token type is encountered, the parsing functions are called to parse the appropriate expression and return the AST node that represents it.
 - Each token type can have 2 types of function. One for **prefix** and one for **infix**
+
+- Because of the 2 values, one on each side. These expressions are sometimes called "binary expressions"
