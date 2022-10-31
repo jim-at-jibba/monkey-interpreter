@@ -3,7 +3,7 @@ package token
 type TokenType string
 
 const (
-	ILLIGAL = "ILLIGAL"
+	ILLEGAL = "ILLEGAL"
 	EOF     = "EOF"
 
 	// Identifiers + literals
@@ -12,8 +12,6 @@ const (
 
 	// Operators
 	ASSIGN   = "="
-	EQ       = "=="
-	NOT_EQ   = "!="
 	PLUS     = "+"
 	MINUS    = "-"
 	BANG     = "!"
@@ -22,6 +20,9 @@ const (
 
 	LT = "<"
 	GT = ">"
+
+	EQ     = "=="
+	NOT_EQ = "!="
 
 	// Delimiters
 	COMMA     = ","
@@ -57,7 +58,7 @@ var keywords = map[string]TokenType{
 	"return": RETURN,
 }
 
-func LoopUpIdent(ident string) TokenType {
+func LookupIdent(ident string) TokenType {
 	if tok, ok := keywords[ident]; ok {
 		return tok
 	}
