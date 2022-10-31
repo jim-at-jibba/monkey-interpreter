@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// Use - page 125
 var traceLevel int = 0
 
 const traceIdentPlaceholder string = "\t"
