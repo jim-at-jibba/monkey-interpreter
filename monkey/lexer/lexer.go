@@ -3,10 +3,10 @@ package lexer
 import "github.com/jim-at-jibba/monkey/token"
 
 type Lexer struct {
-	input        string
-	position     int  // current position in the input (points to current char)
-	readPosition int  // current reading position in input (after current char)
-	ch           byte // current char under examination
+	input        string // this could be an io.Reader and file name to create a more rebust lexer
+	position     int    // current position in the input (points to current char)
+	readPosition int    // current reading position in input (after current char)
+	ch           byte   // current char under examination
 }
 
 func New(input string) *Lexer {
@@ -15,6 +15,7 @@ func New(input string) *Lexer {
 	return l
 }
 
+// readChar allows us to look into the future 2
 func (l *Lexer) readChar() {
 	if l.readPosition >= len(l.input) {
 		l.ch = 0
@@ -26,6 +27,7 @@ func (l *Lexer) readChar() {
 	l.readPosition += 1
 }
 
+// NextToken looks at current character and assigns token it
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 
@@ -50,6 +52,7 @@ func (l *Lexer) NextToken() token.Token {
 		tok.Literal = ""
 		tok.Type = token.EOF
 	}
+	// Move to next character
 	l.readChar()
 	return tok
 }

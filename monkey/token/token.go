@@ -28,6 +28,7 @@ const (
 
 // Using a string for ease of use and debugging.
 // Not as porformant but perfectly fine
+// Could be an int or byte if performance was an issue
 type TokenType string
 
 type Token struct {
